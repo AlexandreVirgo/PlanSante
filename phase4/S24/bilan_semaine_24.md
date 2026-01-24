@@ -21,9 +21,9 @@ C'est pour le moment difficile d'évaluer selon la grille RPE
 
 ## Indicateurs santé
 
-**Signaux lombaires**: signal léger
-**Énergie**: moyenne basse
-**Motivation**: bonne
-**Humeur**: positive
-**Digestion**: RAS
-**Sommeil**: insuffisant
+- **Signaux lombaires**: signal léger
+- **Énergie**: moyenne basse
+- **Motivation**: bonne
+- **Humeur**: positive
+- **Digestion**: RAS
+- **Sommeil**: insuffisant
