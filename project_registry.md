@@ -42,8 +42,9 @@ Le poids et la performance sont des indicateurs secondaires au service de la san
 ---
 
 ## État actuel
-- **Phase :** Phase de diète ciblée (Phase 4), semaine 2/4.
-- **Dernière décision clé :** Lancement d’une micro-phase de diète bornée (4 semaines) avec ajustement principal sur les féculents et maintien du volume sportif.
+- **Phase :** Phase de diète ciblée ([Phase 4](/data/phase4/phase4.md)), semaine 3/4.
+- **Dernière décision clé :** CIH S24 clôturé le 25 janvier 2026. Option 0 (Continuité stricte Phase 4) retenue. S25 en cours de planification avec focus hygiène sommeil (stress professionnel externe identifié comme facteur multifactoriel S23–S24).
 - **Prochaine étape :**
-  - Poursuivre la diète jusqu’à atteinte du palier ~75–75,5 kg ou fin de la semaine 26.
-  - Décider ensuite formellement du passage en **phase de stabilisation structurée**, avant d’envisager une itération ultérieure vers le repère long terme (~72 kg).
+  - S25–S26 : Poursuivre Phase 4 (2 semaines restantes) avec optimisation hygiène sommeil.
+  - S26 soir : Évaluation formelle (sommeil S25 > 7h ?, poids palier ~75–75.5 kg atteint ?) avant décision passage **phase de stabilisation structurée**.
+  - Après stabilisation : envisager itération ultérieure vers repère long terme (~72 kg).

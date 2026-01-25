@@ -39,6 +39,7 @@
 - Aucun besoin de durcir les règles pour obtenir des résultats.
 
 ## État actuel
-**Semaine 23/26**
-**Tendance actuelle** : progrès
-**Prochaine étape** : phase de **stabilisation structurée** autour du nouveau palier atteint, avant toute itération ultérieure vers le repère long terme (~72 kg).
+**Semaine 25/26** (S24 complétée, S25 planifiée)  
+**Tendance actuelle** : progrès (poids -2.4 kg en 2 semaines, on-track ~75.5 kg)  
+**Contexte** : Baisse sommeil S24 (-32 min) identifiée comme multifactorielle (stress professionnel S23–S24 + Phase 4). S25 attendu moins stressant, focus hygiène sommeil actué.  
+**Prochaine étape** : S26 (dernière semaine Phase 4) avec évaluation formelle fin S26 du passage en **phase de stabilisation structurée** autour du nouveau palier atteint, avant toute itération ultérieure vers le repère long terme (~72 kg).
