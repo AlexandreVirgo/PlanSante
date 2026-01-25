@@ -1,4 +1,4 @@
-# BILAN SEMAINE XX
+# BILAN SEMAINE 24
 
 **Poids moyen**: 75.8 kg
 
