@@ -1,4 +1,4 @@
-# REGISTRE DU PLAN DE SANTÉ
+# REGISTRE DE PROJET - PLAN DE SANTÉ PERSONNALISÉ
 
 ## Finalité
 Retrouver et maintenir un état de santé global optimal (poids, forme physique, énergie, confort corporel) de manière durable, progressive et compatible avec la vie personnelle, familiale et professionnelle.
