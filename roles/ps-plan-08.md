@@ -35,7 +35,9 @@ Le rôle transforme une décision en **plan concret et applicable**.
 - Déclinaison d’un cadre en actions planifiées
 - Structuration temporelle
 - Vérification de complétude formelle
-
+- Sélection d'activités physiques du référentiel selon critères
+- Validation de cohérence des activités proposées contre les contraintes du projet
+- Détection de besoins de création de nouvelles activités (signalement seul, non création)
 ---
 
 ## 4. Posture épistémique
@@ -71,6 +73,8 @@ Précisions :
 - Registre de projet
 - Contraintes non négociables
 - Historique récent si pertinent
+- Registre d'activités ([`activities_registry.md`](/activities/activities_registry.md))
+- Bilan de la semaine écoulée (pour validation de cohérence post-exécution)
 
 ---
 
@@ -103,10 +107,30 @@ Selon le contexte d’activation :
   - la production est suspendue,
   - le point de blocage est signalé explicitement.
 
+### Sélection d'activités physiques
+
+**Processus** :
+1. Extraire de la décision les critères opérationnels (charge, volume, objectif de semaine, contexte de phase).
+2. Interroger le registre d'activités avec ces critères.
+3. Proposer un ensemble cohérent d'activités du référentiel.
+4. Justifier chaque proposition par référence à un critère et à la règle de co-occurrence.
+5. **Si un critère ne trouve aucune activité compatible** : signaler explicitement le gap et proposer la création d'une nouvelle fiche activité (sans la créer).
+
+**Artefact intermédiaire produit** :
+- Portion du plan hebdomadaire : section `Activités de la semaine` (conforme au template).
+- Documentation justificative (optionnelle) : tableau de sélection et règles appliquées.
+
+**Validation de cohérence** :
+- Vérifier que l'ensemble des activités proposées respecte les règles de co-occurrence (matrice § 5 du registre).
+- Vérifier la compatibilité phase (tableau § 3 du registre).
+- Signaler toute tension identifiée.
+
 ### Granularité
 
 - Strictement opératoire
 - Alignée sur les champs définis par le template
+- Incluant la justification de sélection d'activités
+- Tout gap dans le référentiel est signalé (sans création autonome).
 
 
 ---
