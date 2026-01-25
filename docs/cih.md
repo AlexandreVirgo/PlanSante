@@ -1,5 +1,5 @@
 # CADRE D’ITÉRATION HEBDOMADAIRE (CIH)
-## Plan de santé personnalisé
+## Plan de santé personnalisé — Version étendue
 
 ---
 
@@ -12,7 +12,8 @@ Il vise à :
 - conduire le projet dans le temps de manière structurée,
 - garantir la comparabilité inter-semaines,
 - préserver la gouvernance humaine,
-- produire une mémoire exploitable du plan.
+- produire une mémoire exploitable du plan,
+- rendre le projet **opérationnel** (plans concrets).
 
 Ce cadre :
 - **ne décide pas**,
@@ -30,26 +31,27 @@ Ce cadre :
 - Les artefacts sont classés en :
   - **intermédiaires** (non persistés),
   - **de référence** (persistés après décision humaine).
-- La **décision humaine** est un point explicite du cadre.
+- La **décision humaine** est un point explicite et non contournable.
 - La mémoire du système est assurée **exclusivement par PS-SCR-06**.
+- Aucun rôle ne valide le travail d’un autre rôle.
 
 ---
 
-## 3. Séquence hebdomadaire standard
+## 3. Séquence hebdomadaire standard (vue d’ensemble)
 
-### Vue d’ensemble
-
-1. PS-ANA-02 — Analyse factuelle
-2. PS-SIG-05 — Détection de signaux faibles
-3. PS-COH-04 — Contrôle de cohérence
-4. PS-STR-01 — Structuration des constats
-5. PS-DIR-07 — Orientation stratégique cadrée
-6. **Décision humaine**
-7. PS-SCR-06 — Persistance et traçabilité
+1. PS-ANA-02 — Analyse factuelle  
+2. PS-SIG-05 — Détection de signaux faibles  
+3. PS-COH-04 — Contrôle de cohérence (amont)  
+4. PS-STR-01 — Structuration des constats  
+5. PS-DIR-07 — Orientation stratégique cadrée  
+6. **Décision humaine explicite**  
+7. PS-PLAN-08 — Plan concret (opérationnalisation)  
+8. PS-COH-04 — Contrôle de cohérence (aval, optionnel)  
+9. PS-SCR-06 — Persistance et traçabilité  
 
 ---
 
-## 4. Détail par rôle
+## 4. Détail par étape
 
 ---
 
@@ -67,7 +69,7 @@ Ce cadre :
 
 **Contenu minimal**
 - Tendances observées
-- Comparaison avec semaines précédentes
+- Comparaisons temporelles
 - Variations notables
 - Hypothèses et biais signalés
 
@@ -85,11 +87,11 @@ Ce cadre :
 **Contenu minimal**
 - Liste de signaux détectés
 - Niveau d’incertitude associé
-- Absence de conclusion ou diagnostic
+- Absence de diagnostic ou conclusion
 
 ---
 
-### Étape 3 — PS-COH-04 : Contrôle de cohérence
+### Étape 3 — PS-COH-04 : Contrôle de cohérence (amont)
 
 **Inputs attendus**
 - Registre de projet
@@ -99,11 +101,11 @@ Ce cadre :
 - `A2_SIGNAUX_FAIBLES.md`
 
 **Artefact produit (intermédiaire)**
-- `A3_COHERENCE.md`
+- `A3_COHERENCE_AMONT.md`
 
 **Contenu minimal**
-- Incohérences potentielles identifiées
-- Tensions entre objectifs, contraintes et pratiques
+- Incohérences potentielles
+- Tensions logiques identifiées
 - Aucun jugement d’opportunité
 
 ---
@@ -113,7 +115,7 @@ Ce cadre :
 **Inputs attendus**
 - `A1_ANALYSE_HEBDO.md`
 - `A2_SIGNAUX_FAIBLES.md`
-- `A3_COHERENCE.md`
+- `A3_COHERENCE_AMONT.md`
 
 **Artefact produit (intermédiaire)**
 - `A4_SYNTHESE_STRUCTUREE.md`
@@ -137,77 +139,118 @@ Ce cadre :
 - `A5_OPTIONS_STRATEGIQUES.md`
 
 **Contenu minimal**
-- 2 à 4 options de trajectoire plausibles
-- Conditions de poursuite / prolongement / clôture de phase
-- Implications et risques
-- Points de décision explicitement laissés à l’humain
+- **Option 0 : continuité stricte** (par défaut)
+- 1 à 3 options alternatives
+- Conditions, implications, risques
+- Décision explicitement laissée à l’humain
 
 ---
 
-## 5. Point de décision humaine (obligatoire)
+## 5. Décision humaine explicite (obligatoire)
 
 À partir de `A5_OPTIONS_STRATEGIQUES.md`, l’humain décide explicitement :
-- de l’état de la phase :
-  - poursuite,
-  - prolongement,
-  - clôture,
-- du plan de la semaine suivante,
-- de la création éventuelle d’une nouvelle phase.
+- de l’état de la phase (poursuite / prolongement / clôture),
+- de l’option stratégique retenue,
+- du périmètre du plan suivant (hebdomadaire ou phase).
 
-Aucune décision n’est implicite.
+Aucune décision n’est implicite.  
 Aucun rôle cognitif ne valide ce choix.
 
 ---
 
-## 6. Étape finale — PS-SCR-06 : Persistance et mémoire
+### Étape 6 — PS-PLAN-08 : Plan concret (opérationnalisation)
 
 **Inputs attendus**
-- Décision humaine explicitée
-- Artefacts intermédiaires validés
+- Décision humaine explicite
+- Phase en cours ou nouvelle phase validée
+- Registre de projet
+- Contraintes non négociables
 
-**Artefacts de référence produits**
-- `R_HEBDO_Sxx.md` — Synthèse hebdomadaire validée
-- Mise à jour de :
-  - l’état de la phase,
-  - du plan de la semaine suivante,
-  - du registre de projet (si nécessaire)
+**Artefact produit (intermédiaire)**
+- `A6_PLAN_CONCRET.md`
+
+**Règles impératives**
+- Le plan généré respecte strictement :
+  - `template_plan_semaine.md` **ou**
+  - `template_phase.md`
+- Aucune adaptation du template
+- Aucune alternative stratégique proposée
+
+---
+
+### Étape 7 — PS-COH-04 : Contrôle de cohérence (aval, optionnel)
+
+**Objectif**
+Vérifier que le plan concret :
+- respecte le registre,
+- ne viole aucune contrainte non négociable,
+- est cohérent avec la décision humaine.
+
+**Inputs attendus**
+- Décision humaine
+- `A6_PLAN_CONCRET.md`
+- Registre de projet
+
+**Artefact produit (intermédiaire, optionnel)**
+- `A7_COHERENCE_EX_POST.md`
 
 **Règle**
-- PS-SCR-06 ne reformule pas.
-- PS-SCR-06 ne synthétise pas.
-- PS-SCR-06 documente fidèlement.
+- Aucun blocage
+- Aucun arbitrage
+- Signalement uniquement
 
 ---
 
-## 7. Artefacts et persistance
+### Étape 8 — PS-SCR-06 : Persistance et mémoire
 
-### Artefacts intermédiaires (non persistés)
+**Inputs attendus**
+- Décision humaine
+- Plan concret validé
+- Éventuel contrôle de cohérence ex post
+
+**Artefacts de référence produits**
+- `R_HEBDO_Sxx.md`
+- Mise à jour :
+  - du plan hebdomadaire,
+  - de l’état de la phase,
+  - du registre de projet (si requis)
+
+**Règle**
+- Documentation fidèle
+- Aucune interprétation
+
+---
+
+## 6. Artefacts et persistance
+
+### Artefacts intermédiaires
 - A1_ANALYSE_HEBDO
 - A2_SIGNAUX_FAIBLES
-- A3_COHERENCE
+- A3_COHERENCE_AMONT
 - A4_SYNTHESE_STRUCTUREE
 - A5_OPTIONS_STRATEGIQUES
+- A6_PLAN_CONCRET
+- A7_COHERENCE_EX_POST (optionnel)
 
-### Artefacts de référence (persistés)
+### Artefacts de référence
 - R_HEBDO_Sxx
-- Registre de projet (versionné)
-- Phase en cours (état mis à jour)
-- Plan hebdomadaire
+- Registre de projet versionné
+- Plan hebdomadaire ou phase active
 
 ---
 
-## 8. Statut du cadre
+## 7. Statut du cadre
 
-- **Statut** : stabilisé
-- **Révision** : uniquement via décision humaine
-- **Évolution** : via IRIS-R si nécessaire
+- **Statut** : stabilisé (CIH v2)
+- **Révision** : décision humaine uniquement
+- **Évolution** : via IRIS-R
 
 ---
 
-## 9. Rappel de gouvernance
+## 8. Rappel de gouvernance
 
 - Aucun rôle ne décide.
 - Aucun rôle ne valide.
-- L’humain conserve le contrôle effectif du projet.
+- Le cadre structure, l’humain gouverne.
 
-Ce cadre vise à **aider à penser et à piloter**, non à automatiser.
+Ce CIH vise à rendre le projet **pensable, pilotable et applicable** dans la durée.
