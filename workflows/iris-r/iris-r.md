@@ -160,7 +160,7 @@ Aucun ajout narratif.
 ### 5. Résultat final attendu
 
 - Liste validable de rôles cognitifs.
-- Chaque rôle est prêt à être formalisé via une fiche de rôle standard selon le template `template_role.md.
+- Chaque rôle est prêt à être formalisé via une fiche de rôle standard selon le template T6_role.md.
 - Les rôles sont explicitement provisoires ou stabilisés selon le contexte projet.
 
 ---
