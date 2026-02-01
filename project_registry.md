@@ -42,16 +42,18 @@ Le poids et la performance sont des indicateurs secondaires au service de la san
 ---
 
 ## État actuel
-- **Phase :** Phase de diète ciblée ([Phase 4](/data/phase4/phase4.md)), semaine 3/4.
-- **Dernière décision clé :** CIH S24 clôturé le 25 janvier 2026. Option 0 (Continuité stricte Phase 4) retenue. S25 en cours de planification avec focus hygiène sommeil (stress professionnel externe identifié comme facteur multifactoriel S23–S24).
+- **Phase :** Phase de diète ciblée ([Phase 4](/data/phase4/phase4.md)), semaine 4/4 (dernière semaine).
+- **Dernière décision clé :** CIH S25 clôturé le 1 février 2026. **Option 1 (Modulation préemptive prudente Phase 4 S26)** retenue. 
+  - **Context S25** : Escalade lombaire niveau 2 (sam–dim, transitoire/réversible) + sommeil sous-objectif (7h8 vs 7h10, cause nuit 31 jan isolée) + cumul activités probable contributif. Utilisateur préférence modulation préemptive vs continuation passive.
+  - **S26 plan modulation** : Spacing activités (lun/jeu/sam, durées réduites -5 min), sommeil solidification (> 7h10 strict), monitoring escalade trigger omission (si signal jeudi → omit TEMPO samedi).
 - **Prochaine étape :**
-  - S25–S26 : Poursuivre Phase 4 (2 semaines restantes) avec optimisation hygiène sommeil.
-  - S26 soir : Évaluation formelle (sommeil S25 > 7h ?, poids palier ~75–75.5 kg atteint ?) avant décision passage **phase de stabilisation structurée**.
-  - Après stabilisation : envisager itération ultérieure vers repère long terme (~72 kg).
+  - **S26** : Exécuter plan modulation Option 1 (voir [plan_semaine_26.md](/data/phase4/S26/plan_semaine_26.md))
+  - **S26 soir** : Évaluation formelle critères succès (sommeil > 7h10 solidifié, escalade régression confirmée, poids ~75.5 kg palier atteint) → **décision exit Phase 4 + transition phase de stabilisation structurée S27+**
+  - **Après stabilisation** : Envisager itération ultérieure vers repère long terme (~72 kg).
 
 ---
 
 ## Métadonnées du registre
 - **Statut du registre** : Validé (initialisation structurée, révisions périodiques recommandées)
 - **Configuration associée** : cf. `settings.yaml` (langue, outils, conventions)
-- **Dernière mise à jour** : 28 janvier 2026
+- **Dernière mise à jour** : 1 février 2026 (CIH S25 clôture, Option 1 actée, S26 plan modulation generated)
