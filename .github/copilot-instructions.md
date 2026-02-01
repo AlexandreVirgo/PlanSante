@@ -4,20 +4,123 @@
 
 **PlanSanté** is a structured personal health management system that combines data-driven tracking with cognitive role-based workflows. It's not a code repository—it's a decision-making framework for progressive health optimization (weight, fitness, sleep, nutrition).
 
-### Core Framework: Cadre d'Itération Hebdomadaire (CIH)
+This project uses **AIProjectFramework**: a structured approach to project governance combining:
+- A **project registry** (definitive source of truth for project intent, scope, and state)
+- **Role-based workflows** (executable procedures with explicit cognitive roles)
+- **Iterative, human-gated decision-making** (agent suggests, human decides)
 
-The project uses a **weekly iteration protocol** with 9 sequential cognitive roles:
-1. **PS-ANA-02** (Analyst): Comparative trend analysis of health data
-2. **PS-SIG-05** (Signal Detection): Identify subtle patterns and anomalies
-3. **PS-COH-04** (Coherence Check): Validate internal consistency (pre-decision)
-4. **PS-STR-01** (Structuring): Organize findings into clear statements
-5. **PS-DIR-07** (Strategic Direction): Frame options within project constraints
-6. **Human Decision Point** (non-delegable)
-7. **PS-PLAN-08** (Planning): Convert decisions into concrete weekly actions
-8. **PS-COH-04** (Coherence Check): Post-decision validation (optional)
-9. **PS-SCR-06** (Recording): Archive decisions and update reference artifacts
+### Where to Find Information
 
-Each role has **explicit inputs, outputs, and cognitive boundaries**. Roles do not validate each other's work or make decisions.
+For details on project goals, constraints, and current state:
+→ **[project_registry.md](../project_registry.md)** (Authoritative reference — generated after first CORAL-P execution)
+
+For executable workflows (procedures and their exact steps):
+→ **`workflows/` folder** (Each workflow has its own `.md` file)
+
+For cognitive role specifications:
+→ **`roles/` folder** (Role-specific boundaries and capabilities)
+
+---
+
+## The Framework: Workflows and Roles
+
+### What is a Workflow?
+
+A **workflow** is a structured, multi-step procedure designed to solve a specific project problem. Each workflow:
+- Has a **primary role** that guides decision-making (e.g., META-GOV-01)
+- Is **human-gated**: Agent proposes, human validates before advancing
+- Produces **concrete artifacts** (files, registries, logs)
+- Is **fully documented** in its own `.md` file with exact inputs/outputs
+
+### What is a Role?
+
+A **role** is a cognitive posture—a set of explicit capabilities and boundaries that the agent adopts. Roles are:
+- **Not autonomous decision-makers**: They structure, analyze, suggest
+- **Explicitly bounded**: Each role has a detailed spec file defining what it can and cannot do
+- **Non-overlapping**: Responsibilities are clear; no ambiguity about who does what
+
+---
+
+## Available Workflows in This Project
+
+### Workflow Registry and Invocation
+
+When you request to execute or resume a workflow, the agent will match your request against the registry.
+
+**Authoritative source**: [workflows/WORKFLOW_REGISTRY.md](../workflows/WORKFLOW_REGISTRY.md)
+
+---
+
+## How to Invoke a Workflow
+
+### Pattern 1: Start a workflow from the beginning
+```
+User: "Execute CORAL-P"
+User: "Launch iris-r to define project roles"
+User: "Run coral-p and help me build the project registry"
+
+Agent action:
+1. Identify workflow from keywords (consult WORKFLOW_REGISTRY.md)
+2. Load the workflow file
+3. Begin at § 4, Étape 1
+4. Adopt the primary role listed in registry
+5. Execute the first step
+```
+
+### Pattern 2: Resume from a specific step
+```
+User: "Resume CORAL-P at step 5"
+User: "Reprendre coral-p à l'étape 4"
+User: "Continue IRIS-R from étape 2"
+
+Agent action:
+1. Identify workflow and target step from request
+2. Load the workflow file (reference WORKFLOW_REGISTRY.md)
+3. Jump to § 4, Étape N (where N = requested step)
+4. Adopt the primary role
+5. Execute that step
+```
+
+### Pattern 3: Workflow with additional context (optional argument)
+```
+User: "Run IRIS-R and tell me if adding a Scribe role is appropriate"
+User: "Execute CORAL-P for the new phase 2 project"
+
+Agent action:
+1. Identify workflow
+2. Load the workflow file and begin normally
+3. After completing the workflow, explicitly address the user's additional question/context
+```
+
+### Case Insensitivity
+The agent recognizes workflow keywords regardless of case:
+- `coral-p`, `CORAL-P`, `Coral-P`, `CoRaL-p` → all match
+- `iris-r`, `IRIS-R`, `Iris-R`, `IRIS-r` → all match
+- Verb variants accepted: run, execute, launch, start, begin, resume, continue, reprise, reprendre
+
+---
+
+## Self-Check Protocol
+
+Before executing any workflow, the agent confirms:
+
+✓ **Workflow identified**: [CORAL-P | IRIS-R | other]  
+✓ **Entry point**: [Étape 1 | Étape N, where N = specific step]  
+✓ **Authoritative source loaded**: [file path from registry]  
+✓ **Primary role to assume**: [META-GOV-01 | other]  
+
+**If uncertain**, display this to the user:
+```
+I'm about to execute [WORKFLOW]. Is this correct?
+- Workflow: [NAME]
+- File: [PATH]
+- Entry point: [Étape X]
+- Role: [ROLE]
+```
+
+Then await confirmation before proceeding.
+
+---
 
 ## Critical Project Conventions
 
@@ -31,62 +134,11 @@ Each role has **explicit inputs, outputs, and cognitive boundaries**. Roles do n
   - `R_HEBDO_S{WW}.md`: Weekly reference artifact summarizing decisions, indicators, and plans
 - **Analysis files**: `data/phase{N}/S{WW}/analysis/a{X}.md`: intermediate analytical outputs
 
-### Key Files & Their Purpose
-
-| File | Purpose |
-|------|---------|
-| [project_registry.md](project_registry.md) | North star: finalité, objectives, constraints, current state |
-| [workflows/cih/cih.md](workflows/cih/cih.md) | Complete CIH protocol definition |
-| [roles/ps-*.md](roles) | Individual role specifications (9 files, one per role) |
-| [activities](activities) | Activity definitions and registry |
-| [workflows/cih/templates/](workflows/cih/templates) | Markdown templates for bilan/plan artifacts |
-| `data/sleeping_history.csv` & `weight_history.csv` | Raw tracking data |
-
-### Constraints to Preserve (Non-Negotiable)
-
-From `project_registry.md`, these are hard constraints on recommendations:
-- **Health priority**: No strategy should degrade sleep, recovery, or spinal health
-- **Progressivity**: Don't increase exercise load + caloric deficit simultaneously  
-- **Durability**: No extreme restrictions or compensatory behaviors
-- **Signal priority**: Body signals (pain, fatigue, digestion) trump numbers
-- **Target**: ~72 kg is a reference point, not an absolute goal
-
-## The Primary Workflow: CIH (Cadre d'Itération Hebdomadaire)
-
-When a user requests "run the CIH" or "execute the weekly iteration," this is the definitive workflow. 
-
-**Authoritative source:** [workflows/cih/cih.md](workflows/cih/cih.md)
-
-The CIH consists of 9 sequential steps, each governed by a specific cognitive role. Each role has its own detailed specification file in `roles/`.
-
-### Invoking the CIH
-
-When CIH is invoked, automatically load the workflow as defined in [cih.md](workflows/cih/cih.md).
-
-Then proceed to **Step 1** as defined in [cih.md § 4](workflows/cih/cih.md#4-détail-par-étape).
-
-### Understanding the 9 Steps
-
-The complete CIH protocol is defined in [workflows/cih/cih.md](workflows/cih/cih.md):
-- **Steps 1–5:** Analytical and framing roles (no decision)
-- **Step 6:** Explicit human decision (mandatory, non-delegable)
-- **Steps 7–9:** Planning, validation, and archival
-
-**Do not paraphrase or invent step definitions.** Refer directly to [cih.md § 4](workflows/cih/cih.md#4-détail-par-étape) for:
-- Exact inputs expected at each step
-- Artifact names and locations
-- Role boundaries and cognitive constraints
-- Minimal required content for each artifact
-
-### Step 6: Human Decision Point
-
-The human decision point (Step 6) is mandatory and cannot be delegated. Present the outputs from Step 5 (`a5.md` as defined in [cih.md § 4.5](workflows/cih/cih.md#étape-5--ps-dir-07--orientation-stratégique-cadrée)) and await explicit user choice before proceeding to Step 7.
-
-## Markdown Conventions & Project Patterns
+### Markdown Conventions & Project Patterns
 
 This section documents observable patterns from the codebase. For formal definitions, consult the corresponding specification files.
 
-### Markdown Conventions
+#### Markdown Conventions
 
 - **Headings hierarchy**: H1 (title), H2 (major sections), H3 (subsections)
 - **Metadata blocks**: Sections like "## Objectifs de la semaine" or "## Alimentation" appear consistently in weekly plans
@@ -96,7 +148,7 @@ This section documents observable patterns from the codebase. For formal definit
 - **Activity naming**: Standard codes like `FB-30-BASE-V1` (Functional Base, 30 min, base level, version 1)
 - **RPE scale**: 1–10 Borg Rating of Perceived Exertion; context-specific (e.g., 5–6 for moderate running)
 
-### File Naming
+#### File Naming
 
 - Phase files: `phase{N}.md` (N = 1, 2, 3, 4)
 - Weekly files: `plan_semaine_{WW}.md` and `bilan_semaine_{WW}.md` (WW = week number)
@@ -104,16 +156,22 @@ This section documents observable patterns from the codebase. For formal definit
 - Reference artifact: `R_HEBDO_Sxx.md` (weekly reference, created in Step 9)
 - Templates: `template_*.md` in `workflows/cih/templates/`
 
-## Key Principles
+---
 
-- **Single source of truth**: All data in CSV and markdown; no external APIs
-- **Governance by design**: Every decision point is human-gated (Step 6 mandatory)
-- **Role separation**: Each role has explicit boundaries; do not delegate decision-making across roles
-- **Memory by design**: PS-SCR-06 (Step 9) maintains audit trail via `R_HEBDO_Sxx.md` and project registry updates
+## Critical Principles
+
+- **Single source of truth**: All project state in [project_registry.md](../project_registry.md)
+- **Governance by design**: Every major decision is human-gated (agent proposes, human decides)
+- **Role respect**: Each workflow has explicit role boundaries; don't exceed them
+- **Artifact traceability**: Workflows produce logs; check `workflows/[name]/logs/` for execution history
+- **No autonomous decisions**: If uncertain, ask the user
+
+---
 
 ## When Uncertain, Consult
 
-- **CIH protocol details**: [workflows/cih/cih.md](workflows/cih/cih.md) § 4
-- **Role specifications**: The `roles/ps-*.md` file corresponding to the active step
-- **Current project state**: [project_registry.md](project_registry.md)
-- **Template structure**: Files in [workflows/cih/templates/](workflows/cih/templates/)
+- **Workflow registry**: [workflows/WORKFLOW_REGISTRY.md](../workflows/WORKFLOW_REGISTRY.md)
+- **Workflow protocol**: The relevant workflow `.md` file
+- **Role boundaries**: The corresponding `roles/[role-name].md` file
+- **Project state**: [project_registry.md](../project_registry.md) (available after CORAL-P initialization)
+- **This document**: For workflow invocation syntax and keywords

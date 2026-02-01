@@ -48,3 +48,10 @@ Le poids et la performance sont des indicateurs secondaires au service de la san
   - S25–S26 : Poursuivre Phase 4 (2 semaines restantes) avec optimisation hygiène sommeil.
   - S26 soir : Évaluation formelle (sommeil S25 > 7h ?, poids palier ~75–75.5 kg atteint ?) avant décision passage **phase de stabilisation structurée**.
   - Après stabilisation : envisager itération ultérieure vers repère long terme (~72 kg).
+
+---
+
+## Métadonnées du registre
+- **Statut du registre** : Validé (initialisation structurée, révisions périodiques recommandées)
+- **Configuration associée** : cf. `settings.yaml` (langue, outils, conventions)
+- **Dernière mise à jour** : 28 janvier 2026
