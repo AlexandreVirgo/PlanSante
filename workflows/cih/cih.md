@@ -62,6 +62,51 @@ L'agent, sur instruction formelle de l'utilisateur, procède à l'étape suivant
 
 ---
 
+## 3.5 Style de présentation agent (Étapes 1–5)
+
+Pour chaque étape 1–5, l'agent adopte un style de présentation **utilisateur-centric** :
+
+**Après création de l'artefact technique AN** :
+
+1. **Afficher résumé concis** (~200–300 mots, pas le fichier complet) :
+   - Synthétiser les findings clés
+   - Utiliser langage direct, pas technique
+   - Mettre en évidence tensions/signaux majeurs
+   - Référencer artefact technique si utilisateur a doute
+
+2. **Poser 2–3 questions clarifiantes optionnelles** :
+   - Ciblées sur **lacunes informationnelles critiques** identifiées en étape
+   - Format simple : texte libre ou choix cochables
+   - Preamble : "Réponds si tu as 2–3 min (optionnel)"
+
+3. **S'arrêter obligatoirement** :
+   - Ne jamais initier étape suivante sans instruction utilisateur explicite
+   - Attendre feedback utilisateur (réponses aux questions ou "continuer")
+
+4. **Raffinage optionnel** :
+   - Si utilisateur fournit feedback pertinent → raffiner AN partiellement
+   - Documenter feedback brièvement dans artefact ou notes
+   - Continuer seulement après instruction utilisateur claire
+
+**Format réponse agent** :
+
+```
+## [Étape N] — [Titre rôle]
+
+[Résumé synthétique : 200–300 mots]
+
+### Questions clarifiantes (optionnel)
+Q1 : [Question 1]
+Q2 : [Question 2]
+Q3 : [Question 3]
+
+Répondre si tu as 2–3 min, sinon tape "continuer".
+
+**Artefact technique complet** (optionnel si tu doutes) : [A{N}_...]
+```
+
+---
+
 ## 4. Détail par étape
 
 ---
@@ -71,6 +116,9 @@ L'agent, sur instruction formelle de l'utilisateur, procède à l'étape suivant
 - Phase en cours (data/phase{N}/phase{N}.md from [project_registry.md § État actuel](/project_registry.md#état-actuel))
 - Plan de la semaine écoulée (data/phase{N}/S{WW}/plan_semaine_WW.md)
 - Bilan hebdomadaire utilisateur (data/phase{N}/S{WW}/bilan_semaine_WW.md)
+- Artefact de référence précédent : R_HEBDO_S{WW-1}.md (si disponible, pour comparaison baseline et contexte tendu)
+- Données historiques complètes ([weight_history.csv](/data/weight_history.csv) & [sleeping_history.csv](/data/sleeping_history.csv))
+- Données et fichiers de tracking spécifiques à la semaine (fichiers .csv ou autres mentionnés dans bilan, ex. Sommeil.csv)
 
 ### Étape 1 — PS-ANA-02 : Analyse du bilan hebdomadaire
 
@@ -79,18 +127,34 @@ L'agent, sur instruction formelle de l'utilisateur, procède à l'étape suivant
 **Inputs attendus**
 - Registre de projet
 - Phase en cours
-- Plan de la semaine écoulée
-- Bilan hebdomadaire utilisateur
-- Données historiques pertinentes ([weight_history.csv](/data/weight_history.csv) & [sleeping_history.csv](/data/sleeping_history.csv))
+- Plan de la semaine écoulée (S{WW})
+- Bilan hebdomadaire utilisateur (S{WW})
+- Artefact de référence précédent : R_HEBDO_S{WW-1}.md (si disponible)
+- Données historiques complètes ([weight_history.csv](/data/weight_history.csv) & [sleeping_history.csv](/data/sleeping_history.csv))
+- Fichiers de tracking mentionnés dans bilan (ex. Sommeil.csv, si applicable)
 
 **Artefact produit (intermédiaire)**
 - `A1_ANALYSE_HEBDO.md`
 
 **Contenu minimal**
 - Tendances observées
-- Comparaisons temporelles
+- Comparaisons temporelles **quantifiées** (S{WW-1} vs S{WW} pour poids, sommeil, et tout indicateur prioritaire signalé dans plan S{WW})
 - Variations notables
 - Hypothèses et biais signalés
+
+**Règle d'exhaustivité des données**
+- Tout fichier `.csv` listant données historiques (weight_history.csv, sleeping_history.csv) **DOIT** être ouvert, consulté et analysé de manière comparative (S{WW-1} vs S{WW}).
+- Tout fichier de tracking spécifique mentionné dans le bilan (ex. Sommeil.csv) **DOIT** être ouvert et exploité, particulièrement si le plan S{WW} insiste sur ce critère comme prioritaire.
+- Absence d'exploitation documentée ou explicite = dette analytique signalée clairement en section « Biais et limitations ».
+- Les comparaisons doivent porter sur les **données mesurées**, non sur les auto-évaluations qualitatives seules, sauf si donnée quantifiée indisponible (auquel cas, noter la limitation).
+
+**Protocole présentation utilisateur (obligatoire)**
+- Agent affiche résumé synthétique (200–300 mots) des findings clés (pas le fichier A1 complet)
+- Agent pose 2–3 questions clarifiantes sur lacunes informationnelles (ex : contexte événement, hypothèse utilisateur)
+- Preamble : "Réponds si tu as 2–3 min (optionnel)"
+- Agent s'arrête et attend feedback utilisateur (réponses ou "continuer")
+- Si feedback pertinent → agent raffine A1 optionnellement
+- Agent n'initie Étape 2 que sur instruction utilisateur explicite
 
 ---
 
@@ -110,6 +174,13 @@ L'agent, sur instruction formelle de l'utilisateur, procède à l'étape suivant
 - Niveau d’incertitude associé
 - Absence de diagnostic ou conclusion
 
+**Protocole présentation utilisateur (obligatoire)**
+- Agent affiche résumé synthétique (200–300 mots) : signaux détectés par gravité (majeur/mineur/positif)
+- Agent pose 2–3 questions clarifiantes sur étiologie/causation (ex : hypothèse utilisateur sur cause signal)
+- Preamble : "Réponds si tu as 2–3 min (optionnel)"
+- Agent s'arrête et attend feedback utilisateur
+- Si feedback pertinent → agent raffine A2 optionnellement
+- Agent n'initie Étape 3 que sur instruction utilisateur explicite
 ---
 
 ### Étape 3 — PS-COH-04 : Contrôle de cohérence (amont)
@@ -131,6 +202,13 @@ L'agent, sur instruction formelle de l'utilisateur, procède à l'étape suivant
 - Tensions logiques identifiées
 - Aucun jugement d’opportunité
 
+**Protocole présentation utilisateur (obligatoire)**
+- Agent affiche résumé synthétique (200–300 mots) : tableau cohérences + incohérences identifiées
+- Agent pose 2–3 questions clarifiantes sur validation incohérences (ex : lien causal, acceptabilité)
+- Preamble : "Réponds si tu as 2–3 min (optionnel)"
+- Agent s'arrête et attend feedback utilisateur
+- Si feedback pertinent → agent raffine A3 optionnellement
+- Agent n'initie Étape 4 que sur instruction utilisateur explicite
 ---
 
 ### Étape 4 — PS-STR-01 : Structuration des constats
@@ -150,6 +228,17 @@ L'agent, sur instruction formelle de l'utilisateur, procède à l'étape suivant
 - Tensions structurantes
 - Questions ouvertes
 - Cadres formels mobilisables
+
+**Protocole présentation utilisateur (obligatoire)**
+- Agent affiche résumé synthétique (300–400 mots) : tableau état global + tensions majeures formulées
+- Agent pose 3 questions clarifiantes **CRITIQUES** (directement impactent Étape 5 — options stratégiques)
+  - Q1 : Hypothèse utilisateur sur étiologie majeure (détermine options)
+  - Q2 : Acceptabilité escalade/incohérence observée
+  - Q3 : Priorités relatives (ex : poids vs santé)
+- Preamble : "Réponds si tu as 3–5 min (optionnel, mais très utile pour étape suivante)"
+- Agent s'arrête et attend feedback utilisateur
+- Si feedback pertinent → agent raffine A4 optionnellement, mais **surtout intègre feedback en A5**
+- Agent n'initie Étape 5 que sur instruction utilisateur explicite
 
 ---
 
@@ -171,6 +260,16 @@ L'agent, sur instruction formelle de l'utilisateur, procède à l'étape suivant
 - Conditions, implications, risques
 - Décision explicitement laissée à l’humain
 
+**Protocole présentation utilisateur (obligatoire)**
+- Agent affiche résumé synthétique (400–500 mots) : 3 options stratégiques présentées concisement
+  - Description brève chaque option
+  - Conditions activation
+  - Avantages/risques bullétés
+- Agent pose 1 question optionnelle : "Quelle option résonne avec toi intuitivement ?"
+  - Ou directement : utilisateur prêt à décider Étape 6
+- Preamble : "Lis les 3 options attentivement. Décision Étape 6 proche."
+- Agent s'arrête et attend feedback utilisateur OU demande: "Prêt(e) pour Étape 6 (décision) ?"
+- Agent n'initie Étape 6 que sur instruction utilisateur explicite
 ---
 
 ### Étape 6 . Décision humaine explicite (obligatoire)
