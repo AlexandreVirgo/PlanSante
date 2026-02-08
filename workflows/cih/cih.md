@@ -296,16 +296,23 @@ Aucun rôle cognitif ne valide ce choix.
 - Contraintes non négociables ([project_registry.md § Contraintes non négociables](/project_registry.md#contraintes-non-négociables))
 - Registre d'activités ([activities_registry.md](/activities/activities_registry.md))
 
-**Artefacts produits (DEUX fichiers obligatoires)**
+**Artefacts produits**
 
-1. **Plan concret au bon emplacement (en fonction de la décision humaine)** :
-   - `/data/phase{N}/S{WW+1}/plan_semaine_{WW+1}.md` (si continuité : semaine suivante de la phase en cours)
-   - OU `/data/phase{N+1}/phase{N+1}.md` (si nouvelle phase)
+1. **Plan hebdomadaire (OBLIGATOIRE dans tous les cas)** :
+  - `/data/phase{N}/S{WW+1}/plan_semaine_{WW+1}.md` (si continuité : semaine suivante de la phase en cours)
+  - `/data/phase{N+1}/S{WW+1}/plan_semaine_{WW+1}.md` (si création d'une nouvelle phase : première semaine de la nouvelle phase)
 
-2. **Copie locale de synthèse (obligatoire)** :
-   - `A6_PLAN_CONCRET.md` (stocker dans `/data/phase{N}/S{WW}/analysis/A6_PLAN_CONCRET.md`)
+2. **Phase (OBLIGATOIRE si et seulement si création d'une nouvelle phase)** :
+  - `/data/phase{N+1}/phase{N+1}.md`
 
-**Critère de succès de l'étape 7** : Les deux fichiers doivent être créés et leurs chemins absolus affichés explicitement.
+3. **Copie locale de synthèse (obligatoire)** :
+  - `A6_PLAN_CONCRET.md` (stocker dans `/data/phase{N}/S{WW}/analysis/A6_PLAN_CONCRET.md`)
+
+**Critère de succès de l'étape 7** :
+- Le fichier `A6_PLAN_CONCRET.md` est créé
+- Le plan hebdomadaire est créé au bon emplacement
+- Si nouvelle phase : le fichier `phase{N+1}.md` est créé
+- Les chemins absolus de tous les fichiers créés sont affichés explicitement
 
 **Règles impératives**
 - Le plan généré respecte strictement :
@@ -354,10 +361,15 @@ Vérifier que le plan concret :
 
 **Artefacts de référence produits**
 - `R_HEBDO_Sxx.md`
-- Mise à jour :
-  - du plan hebdomadaire,
-  - de l’état de la phase,
-  - du registre de projet (si requis)
+- Mise à jour (obligatoire) :
+  - du plan hebdomadaire de la semaine à venir (référence et traçabilité)
+  - de l’état de la phase
+  - du registre de projet
+
+**Cas particulier — création d'une nouvelle phase**
+- Mise à jour de la **phase précédente** (`/data/phase{N}/phase{N}.md`) : refléter explicitement la clôture/transition actée à S{WW}
+- Mise à jour de la **nouvelle phase** (`/data/phase{N+1}/phase{N+1}.md`) : refléter l'activation en S{WW+1} et la prochaine étape
+- Mise à jour du **registre de projet** (`/project_registry.md`) : pointer vers la nouvelle phase active et la semaine courante correspondante
 
 **Règle**
 - Documentation fidèle
@@ -382,9 +394,10 @@ Liste :
 
 ### Artefacts de référence
 - **R_HEBDO_Sxx.md** (créé à l'étape 9, stocké à `/data/phase{N}/S{WW}/`)
-- **plan_semaine_{WW+1}.md** ou **phase{N+1}.md** (créé à l'étape 7 au bon emplacement)
+- **plan_semaine_{WW+1}.md** (créé à l'étape 7 au bon emplacement)
+- **phase{N+1}.md** (créé à l'étape 7 uniquement si nouvelle phase)
 - Registre de projet versionné
-- État de la phase mis à jour
+- État de la phase mis à jour (incluant phase précédente si transition)
 
 ---
 
