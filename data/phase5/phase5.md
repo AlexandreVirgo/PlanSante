@@ -65,6 +65,6 @@
 - Adhérence : routine maintenue sans baisse de motivation.
 
 ## Etat actuel
-**Semaine 1/4 (S27)**
-**Tendance actuelle**: progrès
-**Prochaine étape**: Consolider la stabilisation tout en verrouillant la séance qualité pour éviter la dérive (FC haute → technique moins vigilante → lombaire)
+**Semaine 2/4 (S28)**
+**Tendance actuelle**: stabilisation
+**Prochaine étape**: Exécuter le plan S28 (3 séances, 1 qualité contrôlée) ; préserver la durée de sommeil ; observer la trajectoire de poids sur 10–14 jours.

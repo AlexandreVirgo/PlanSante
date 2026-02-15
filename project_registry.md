@@ -42,17 +42,17 @@ Le poids et la performance sont des indicateurs secondaires au service de la san
 ---
 
 ## État actuel
-- **Phase :** Phase de stabilisation structurée ([Phase 5](/data/phase5/phase5.md)), semaine 1/4 (S27).
-- **Dernière décision clé :** CIH S26 clôturé le 8 février 2026. **Option 1 (Exit Phase 4 + création Phase 5) + garde-fous séance qualité** actée.
-  - **Plan S27** : [plan_semaine_27.md](/data/phase5/S27/plan_semaine_27.md)
-  - **Référence hebdo** : [R_HEBDO_S26.md](/data/phase4/S26/R_HEBDO_S26.md)
+- **Phase :** Phase de stabilisation structurée ([Phase 5](/data/phase5/phase5.md)), semaine 2/4 (S28).
+- **Dernière décision clé :** CIH S27 clôturé le 15 février 2026. **Option 2 (continuité Phase 5 + observation poids 10–14 jours, sans correction immédiate ; FC en info)** actée.
+  - **Plan S28** : [plan_semaine_28.md](/data/phase5/S28/plan_semaine_28.md)
+  - **Référence hebdo** : [R_HEBDO_S27.md](/data/phase5/S27/R_HEBDO_S27.md)
 - **Prochaine étape :**
-  - **S27** : Exécuter le plan de stabilisation (sommeil cible 22h30/23h, monitoring lombaire 0–4, poids palier).
-  - **Clôture** : CIH de fin S27 (production bilan/plan + décision éventuelle sur la suite de Phase 5).
+  - **S28** : Exécuter le plan de stabilisation (3 séances, 1 qualité contrôlée) + observation poids 10–14 jours.
+  - **Clôture** : CIH de fin S28 (production bilan/plan + décision sur la poursuite/prolongement/clôture Phase 5).
 
 ---
 
 ## Métadonnées du registre
 - **Statut du registre** : Validé (initialisation structurée, révisions périodiques recommandées)
 - **Configuration associée** : cf. `settings.yaml` (langue, outils, conventions)
-- **Dernière mise à jour** : 8 février 2026 (CIH S26 clôture, Phase 5 activée, plan S27 validé)
+- **Dernière mise à jour** : 15 février 2026 (CIH S27 clôture, plan S28 validé)

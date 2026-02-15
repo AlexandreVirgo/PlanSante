@@ -9,9 +9,20 @@
 
 ## Activités
 
--
--
--
+### Activité 1
+**Jour** :
+**Type** :
+**RPE constaté**:
+
+### Activité 2
+**Jour** :
+**Type** :
+**RPE constaté**:
+
+### Activité 3
+**Jour** :
+**Type** :
+**RPE constaté**:
 
 ## Indicateurs santé
 
